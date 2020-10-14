@@ -7,12 +7,15 @@ def info_print():
     print('4、查询学员')
     print('5、显示所有学员')
     print('6、退出系统')
-    print('-' *20)
+    print('-' * 20)
+
 
 # 等待存储所有学员的信息
 info = []
 
 # 添加学员信息的函数
+
+
 def add_info():
     '''添加学员函数'''
     # 1.用户输入：学号、姓名、手机号
@@ -36,11 +39,13 @@ def add_info():
     info_dict['tel'] = new_tel
     # print(info_dict)
 
-    #列表追加字典
+    # 列表追加字典
     info.append(info_dict)
     print(info)
 
 # 删除学员
+
+
 def del_info():
     '''删除学员'''
     # 1.用户输入要删除的学员的姓名
@@ -61,6 +66,57 @@ def del_info():
 
     print(info)
 
+# 修改函数
+
+
+def modify_info():
+    '''修改学员信息'''
+    # 1.用户输入想要修改的学员您的名字
+    modify_name = input('请输入要修改的学员的名字：')
+
+    # 2.判断学员是否存在：存在修改手机号；不存在，提示
+    # 2.1 声明info是否全局
+    global info
+    # 2.2 遍历列表，判断输入的名字==字典['name']
+    for i in info:
+        if modify_name == i['name']:
+            # 将tel这个key修改值，并终止此循环
+            i['tel'] = input('请输入新的手机号：')
+            break
+    else:
+        # 学员不存在
+        print('该学员不存在')
+    # 3.打印info
+    # print(info)
+
+# 查找学员信息函数
+
+
+def search_info():
+    '''查询学员信息'''
+    # 1.用户输入目标学员姓名
+    search_name = input('请输入要查询的学员的姓名：')
+    # 2.检查学员是否存在；存在打印这个学员的信息；不存在则提示
+    # 2.1 声明info为全局变量
+    global info
+    # 2.2 遍历info，判断输入的学员是否存在
+    for i in info:
+        if search_name == i['name']:
+            # 学员存在，打印信息并终止循环
+            print('查找的学员信息如下：-------')
+            print(f"该学员的学号是{i['id']}，姓名是{i['name']}，手机号是{i['tel']}")
+            break
+    else:
+        print('该学员不存在')
+
+# 显示所有学员信息
+def print_all():
+    '''显示所有学员信息'''
+    # 1.打印提示字
+    print('学号\t姓名\t手机号')
+    # 2.打印所有学员的数据
+    for i in info:
+        print(f"{i['id']}\t{i['name']}\t{i['tel']}")
 
 # 系统功能需要循环使用，直到用户输入6，才退出系统
 while True:
@@ -79,11 +135,14 @@ while True:
         # print('删除')
         del_info()
     elif user_num == 3:
-        print('修改')
+        # print('修改')
+        modify_info()
     elif user_num == 4:
-        print('查询')
+        # print('查询')
+        search_info()
     elif user_num == 5:
-        print('显示所有')
+        # print('显示所有')
+        print_all()
     elif user_num == 6:
         print('退出系统')
         break
