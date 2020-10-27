@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 把数据提交给web服务器需要使用表单标签 -->
+    <form action="https://www.baidu.com" method="POST">
+        <!-- for 根据id名给指定id的标签设置光标 -->
+        <label for="name">account:</label>
+        <input type="text" id="name" name="username">
+        <br>
+        <label>password:</label>
+        <input type="password" name="password">
+        <br>
+        <label>gneder:</label>
+        <input type="radio" name="sex" value="0">man
+        <input type="radio" name="sex" value="1">woman
+        <br>
+        <label>perfer:</label>
+        <input type="checkbox" name="love" value="study">study
+        <input type="checkbox" name="love" value="sleep">sleep
+        <input type="checkbox" name="love" value="game">game
+        <br>
+        <label>photo:</label>
+        <input type="file" name="pic">
+        <br>
+        <label>self introduction:</label>
+        <textarea name="desc"></textarea>
+        <br>
+        <label>hometown:</label>
+        <select name="hometown">
+            <option value="1">guangzhou</option>
+            <option value="2">shenzhen</option>
+            <option value="2">shantou</option>
+            <option value="2">huilai</option>
+        </select>
+        <br>
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+        <input type="button" value="button">
+    </form>
+</body>
+</html>
