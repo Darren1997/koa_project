@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //     function fnShow(name, age) {
+    //         alert('ok' + name + age);
+    //         alert(tid);
+    //         // 销毁定时器
+    //         clearTimeout(tid);
+    //     }
+
+    //     // 根据时间间隔调用一次函数的定时器
+    //     // 返回值表示创建定时器返回的id
+    //    var tid = setTimeout(fnShow, 500, '李四', 20);
+        function fnShow(name, age) {
+                alert('ok' + name + age);
+            }
+        function fnStop(){
+            alert('停止')
+            clearInterval(tid);
+        }
+        var tid = setInterval(fnShow, 5000, '李四', 20);
+    </script>
+</head>
+
+<body>
+    <input type="button" value="停止" onclick="fnStop();">
+</body>
+
+</html>

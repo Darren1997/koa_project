@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 获取ul里面的所有li标签
+            var $ul_li = $("ul li");
+            // 获取button
+            var $btn = $(".btn1");
+            // 获取text
+            var $text = $("#txt1");
+            // 获取div标签
+            var $div = $("div");
+            // 添加点击事件
+            $ul_li.click(function(){
+              $(this).css({"color" : "red"});
+            //   获取点击标签的索引
+              alert($(this).index());
+            });
+
+            $btn.click(function(){
+                // 获取文本框的内容
+                alert($text.val());
+            });
+
+            // 给文本框添加焦点事件
+            $text.focus(function(){
+                $(this).css({"background" : "red"});
+            });
+
+            // 给文本框添加失去焦点事件
+            $text.blur(function(){
+                $(this).css({"background" : "white"});
+            });
+
+            // 给div设置鼠标悬停事件
+            $div.mouseover(function(){
+                $(this).css({"background" : "green"});
+            });
+
+            // 给div设置鼠标离开事件
+            $div.mouseout(function(){
+                $(this).css({"background" : "white"});
+            });
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>苹果</li>
+            <li>鸭梨</li>
+            <li>西瓜</li>
+        </ul>
+        <input type="text" id="txt1">
+        <input type="button" value="按钮" class="btn1">
+    </div>
+</body>
+</html>

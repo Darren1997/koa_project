@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        // 普通js代码获取标签
+        window.onload = function(){
+            var div1 = document.getElementById('div1');
+            alert(div1);
+        }
+        // jq代码获取标签
+        // $(document).ready(function(){
+        //     var $div1 = $('#div1');
+        //     alert($div1)
+        // });
+        // jQuery的简写方式.
+        $(function(){
+            var $div1 = $('#div1');
+            alert($div1)
+        })
+    </script>
+</head>
+<body>
+    <div id="div1">哈哈哈哈</div>
+    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2080735201,1206024488&fm=26&gp=0.jpg" alt="pic">
+</body>
+</html>

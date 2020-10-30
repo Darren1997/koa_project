@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnShow(){
+            alert('我是一个无参数返回值的函数');
+        }
+        fnShow()
+
+        function fnSum(iNum1, iNum2){
+            var iResult = iNum1 + iNum2;
+            return iResult;
+            alert('测试代码'); //不执行
+        }
+
+        var iNum = fnSum(1, 2);
+        alert(iNum);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

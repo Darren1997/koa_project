@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var $div1 = $('#box1');
+            $div1.prev().css({"font-size" : "28px"})
+
+            $div1.prevAll().css({"text-indent" : "50px"})
+
+            $div1.next().css({"color" : "red"})
+
+            $div1.nextAll().css({"text-indent" : "80px"})
+
+            $div1.siblings().css({"text-decoration" : "underline"})
+
+            $div1.parent().css({"background" : "yellow"})
+
+            $div1.children().css({"color" : "red"})
+
+            $div1.find(".sp1").css({"color" : "green"})
+        });
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h3>三级标题</h3>
+        <p>哈哈哈</p>
+        <div id="box1"><span>我是</span>一个<span class="sp1">div</span>标签</div>
+        <h3>三级标题</h3>
+        <p>哈哈哈</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <!-- 事件冒泡，就是事件会一级一级往上（父控件）传递 -->
+    <script>
+        $(function(){
+            // var $ul_li = $("ul li");
+            // var $div = $("div");
+            // $ul_li.click(function(){
+            //     $(this).css({"color" : "red"});
+            //     // 取消事件冒泡
+            //     return false;
+            // });
+            // $div.click(function(){
+            //     alert('我是div')
+            // });
+            // 通过事件代理，让父控件代理子控件的相关操作
+            var $ul = $('div ul');
+            $ul.delegate("li", "mouseover", function(){
+                $(this).css({"color" : "red"});
+            });
+            // 可以代理不同子控件的事件
+            var $div1 = $("#div1");
+            $div1.delegate("#p2, #btn1", "click", function(){
+                alert("xixixi");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p id="p1">哈哈</p>
+        <input type="button" value="按钮" id="btn1">
+        <ul>
+            <li>哈哈</li>
+            <li>嘻嘻</li>
+            <li>美滋滋</li>
+            <li>啦啦</li>
+        </ul>
+    </div>
+    <div id="div1">
+        <p id="p2">hahahahahahaha</p>
+        <input type="button" id="btn1" value="按钮">
+    </div>
+</body>
+</html>
