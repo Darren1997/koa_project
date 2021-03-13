@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table,tr,td,th{
+            border:1px solid; 
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: fit-content;" id="app">
+        <input type="text" name="todolist" v-model="subject">
+        <button @click="add()">添加</button>
+        <hr>
+            <table>
+                <tr v-for="item,index in items" >
+                    <td><button @click="up(index)">上移</button></td>
+                    <td>{{item}}</td>
+                    <td><button @click="del(index)">删除</button></td>
+                    <td><button @click="dowm(index)">下移</button></li></td>
+                </tr>
+            </table>
+            <!-- <li v-for="item,index in items" style="list-style-type: none;"> -->
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            items:['java','c++','golam'],
+            subject:'',
+        },
+        methods:{
+            add:function(){
+                if(this.subject!=''){
+                    this.items.push(this.subject)
+                    this.subject=''
+                }
+            },
+            del:function(index){
+                this.items.splice(index,1)
+            },
+            up:function(index){
+                if(index!=0){
+                    var subject = this.items[index]
+                    this.items.splice(index,1)
+                    this.items.splice(index-1,0,subject)
+                }
+            },
+            dowm:function(index){
+                if(index!=this.items.length-1){
+                    var subject = this.items[index]
+                    this.items.splice(index,1)
+                    this.items.splice(index+1,0,subject)
+                }
+            }
+        }
+    })
+</script>
+</html>
