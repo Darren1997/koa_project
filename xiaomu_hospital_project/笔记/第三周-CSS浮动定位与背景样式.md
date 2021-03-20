@@ -16,3 +16,15 @@
         方法三：使用::after伪元素给盒子添加最后一个子元素，并且给::after设置clear:both，然后转为块级元素
         方法四：在两个父盒子之间“隔墙”，隔一个携带clear:both的盒子
 4. 子绝(absolute)父相(relative)
+5. 由于position:relative这个属性并没有脱离文档流的，所以元素本身所占的位置会保留
+6. 浏览器私有前缀，面试需要
+7. 使用background-position属性实现CSS精灵
+8. transform:retate();---旋转---
+            
+        :scale();   ---扩缩---大于1是扩大，小于1是缩小
+        :skew(x斜切角度, y斜切角度);    ---斜切变形---
+        :translate(向左位移, 向右位移);   ---位移---
+        :rotateX(角度); ---绕横轴旋转---
+        :rotateY(角度); ---绕纵轴旋转---
+        上面两个属性加perspective（用在父盒子）可以实现3D旋转
+        当元素进行3D旋转后，即可继续添加translateX()、translateY()、translateZ()属性让元素在空间进行移动

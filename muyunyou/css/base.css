@@ -1,0 +1,61 @@
+@font-face{
+    font-family: "PingFangSC-Regular";
+    src: url("../font/PingFang-SC-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/iconfont.woff2') format('woff2'),
+        url('../font/iconfont.woff') format('woff'),
+        url('../font/iconfont.ttf') format('truetype'),
+        url('../font/iconfont.svg#iconfont') format('svg');
+  }
+@font-face {
+    font-family: 'iconfont1';
+    src: url('/font/iconfont1.eot');
+    src: url('/font/iconfont1.eot?#iefix') format('embedded-opentype'),
+        url('/font/iconfont1.woff2') format('woff2'),
+        url('/font/iconfont1.woff') format('woff'),
+        url('/font/iconfont1.ttf') format('truetype'),
+        url('/font/iconfont1.svg#iconfont') format('svg');
+  }
+body{
+    font-family: 'PingFangSC-Regular';
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+.iconfont1 {
+    font-family: "iconfont1" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+.center-wrap{
+    margin: 0 auto;
+    width: 1152px;
+}
+.tac{
+    text-align: center;
+}
+.clearfix{
+    overflow: hidden;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.db{
+    display: block;
+}
+.dib{
+    display: inline-block;
+}

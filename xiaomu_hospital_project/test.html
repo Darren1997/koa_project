@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .pre{
+            width: 300px;
+            height: 300px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+        } */
+        /* .box1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            border-radius: 20px 10px;
+            margin-bottom: 10px;
+        }
+        .box2{
+            width: 1200px;
+            height: 700px;
+            border: 1px solid black;
+            /* border-radius: 20px 10px; */
+            /* margin-bottom: 10px; */
+            /* background-image: url("./images/news_pic.png"); */
+            /* background-size: contain; */
+            /* background-repeat: no-repeat; */
+            /* background-position: right; */
+            /* background-image: linear-gradient(90deg, yellow, red);
+        } */ 
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        section{
+            width:200px;
+            height: 200px;
+            margin: 300px auto;
+            perspective: 50000px;
+        }
+        .box{
+            width:200px;
+            height: 200px;
+            /* border: 1px solid black; */
+            margin: 300px auto;
+            perspective: 50000px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 5s linear 0s;
+        }
+        .box:hover{
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+        .box p{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 200px;
+            height: 200px;
+        }
+        .box p:nth-of-type(1){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(235, 97, 97, 0.4);
+            transform: translateZ(100px)
+        }
+        .box p:nth-of-type(2){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(182, 235, 97, 0.4);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .box p:nth-of-type(3){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(26, 197, 146, 0.4);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .box p:nth-of-type(4){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(226, 50, 159, 0.4);
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        .box p:nth-of-type(5){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(73, 25, 204, 0.4);
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        .box p:nth-of-type(6){
+            /* width:200px;
+            height: 200px; */
+            background-color: rgba(231, 4, 42, 0.4);
+            transform: translateZ(-100px);
+        }
+        .box1{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            transform: scale(.5) skew(45deg);
+        }
+        div.box2{
+            width: 193px;
+            height: 267px;
+            background-image: url(/test_img/dengpao.png);
+            margin:30px auto;
+            position:relative;
+        }
+        div.box2 img{
+            position: absolute;
+            left: -40%;
+            top: -25%;
+            animation: ss .5s linear 0s infinite alternate;
+        }
+        div.box3{
+            width: 250px;
+            height: 220px;
+            margin:200px auto;
+            position: relative;
+        }
+        div.box3 img{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            animation: zd .3s linear 0s infinite alternate;
+        }
+
+        div.box3 .line1{
+            position: absolute;
+            /* left: 50px;
+            top: 50px; */
+            width: 2px;
+            height: 180px;
+            background-color: rgb(99, 101, 243);
+            transform: rotate(45deg);
+            animation: yun .6s linear .2s infinite ;
+        }
+        div.box3 .line2{
+            position: absolute;
+            left: 30px;
+            top: 100px;
+            width: 2px;
+            height: 180px;
+            background-color: rgb(99, 101, 243);
+            transform: rotate(45deg);
+            animation: yun .6s linear 0s infinite ;
+        }
+        div.box3 .line3{
+            position: absolute;
+            left: 210px;
+            top: 90px;
+            width: 2px;
+            height: 180px;
+            background-color: rgb(99, 101, 243);
+            transform: rotate(45deg);
+            animation: yun .6s linear .6s infinite ;
+        }
+        @keyframes ss{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes zd{
+            from{
+                transform: translateX(-45px) translateY(-45px);
+            }
+            to{
+                transform: translateX(45px) translateY(45px);
+            }
+        }
+        @keyframes yun{
+            0%{
+                transform: rotate(45deg)  translateY(-270px);
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+                transform: rotate(45deg)  translateY(200px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="pre">
+        <div class="son"></div>
+    </div> -->
+    <!-- <div class="box1"></div>
+    <div class="box2"></div> -->
+    <section>
+        <div class="box">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </section>
+    <div class="box1"></div>
+    <div class="box2">
+        <img src="/test_img/guang.png" alt="">
+    </div>
+    <div class="box3">
+        <img src="/test_img/huojian.png" alt="" class="img1">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</body>
+</html>
