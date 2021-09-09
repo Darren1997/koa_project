@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            margin: 20px auto;
+        }
+
+        .backtop{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 30px;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <a href="#" id="backtop" class="backtop">&uarr;</a>
+    <script>
+        function drop(el,options){
+            var ifTouchmove = false;
+
+            options.x = options.x !== undefined ? options.x : false;
+            options.y = options.y !== undefined ? options.y : false;
+            if(!options.x && !options.y)    return;
+            el.addEventListener('touchstart', handleStart, false);
+            el.addEventListener('touchmove', handleMove, false);
+            el.addEventListener('touchend', handleEnd, false);
+            curPoints = {
+                x : 0,
+                y : 0
+            };
+            startPoint = {};
+            function handleStart(ev){
+                var touch = ev.changedTouches[0];
+                startPoint.x = touch.pageX;
+                startPoint.y = touch.pageY;
+            }
+            function handleMove(ev){
+                ifTouchmove = true;
+                ev.preventDefault();
+                var touch = ev.changedTouches[0];
+                // console.log(1);
+                diffPoint = {
+                    x : touch.pageX - startPoint.x,
+                    y : touch.pageY - startPoint.y
+                }
+                if(curPoints.x == 0 && curPoints.y == 0)    move(el,diffPoint.x, diffPoint.y);
+                else    move(el,diffPoint.x + curPoints.x, diffPoint.y + curPoints.y);
+                
+            }
+            function handleEnd(ev){
+                if(!ifTouchmove)    return;
+                var touch = ev.changedTouches[0];
+                curPoints.x += touch.pageX - startPoint.x;
+                curPoints.y += touch.pageY - startPoint.y;
+                // console.log(curPoints.x, curPoints.y);
+                ifTouchmove = false;
+            }
+            function move(el, x, y){
+            x = x || 0;
+            y = y || 0;
+            el.style.transform = 'translate3d('+ x +'px,'+ y +'px, 0)';
+        }
+        }
+    </script>
+
+    <script>
+        var backtop = document.getElementById('backtop');
+        drop(backtop,{x:true, y:true});
+
+        // backtop.addEventListener('click',function(){
+        //     move(this,-10,-10);
+        // },false);
+        
+        
+    </script>
+
+    <script>
+        var boxEl = document.getElementById('box');
+
+        boxEl.addEventListener('touchstart',touchStart);
+        boxEl.addEventListener('touchmove', touchMove);
+        boxEl.addEventListener('touchend', touchEnd);
+
+        function touchStart(ev){
+            console.log('touchstart',ev);
+        }
+        function touchMove(){
+            console.log('touchmove');
+        }
+        function touchEnd(){
+            console.log('touchend');
+        }
+    </script>
+</body>
+</html>

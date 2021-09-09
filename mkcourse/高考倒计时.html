@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <script>
+        var h1 = document.getElementById('h1');
+
+        var d = new Date(2021, 5, 7);
+        setInterval(function(){
+            var p = new Date();
+            // console.log(d - p);
+            var d_ms = d - p;
+            var day = parseInt(d_ms/(1000*60*60*24));
+            // alert(day);
+            var hour = parseInt(d_ms%(1000*60*60*24)/(1000*60*60));
+            // alert(hour);
+            var minute = parseInt(d_ms%(1000*60*60*24)%(1000*60*60)/(1000*60));
+            // alert(minute);
+            var second = parseInt(d_ms%(1000*60*60*24)%(1000*60*60)%(1000*60)/1000);
+            // alert(second);
+            h1.innerText = '距离2021年高考还有'+day+'天'+hour+'时'+minute+'分'+second+'秒';
+        }, 1000);
+    </script>
+</body>
+</html>

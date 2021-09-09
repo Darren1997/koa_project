@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">点击添加li</button>
+    <ul id="list1"></ul>
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var list1 = document.getElementById('list1');
+
+        btn1.onclick = function(e){
+            var li = document.createElement('li');
+            li.innerHTML = 'li标签';
+            list1.appendChild(li);
+            // li.onclick = function(e){
+            //     li.style.color = 'red';
+            // };
+        };
+
+        // 事件委托
+        list1.onclick = function(e){
+            e.target.style.color = 'red';
+        };
+
+    </script>
+</body>
+</html>

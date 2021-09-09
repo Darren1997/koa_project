@@ -5,8 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的第一个网页</title>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById('box1');
+            var text1 = document.getElementById('text1');
+            console.log(box1);
+            console.log(text1);
+            console.log(typeof box1);
+            console.log(box1.nodeType)
+        }
+    </script>
 </head>
 <body>
     我的第一个网页
+    <div id="box1">anny</div>
+    <p id="text1">hello</p>
 </body>
 </html>

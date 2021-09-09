@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+    <style>
+        @keyframes leftToRight {
+            0% {
+                transform: translateX(-150px);
+            }
+            50%{
+                transform: translateX(-50px);
+            }
+            100%{
+                transform: translateX(0px);
+            }
+        }
+        .amination{
+            animation: leftToRight 3s ease;
+        }
+        .transition{
+            transition: 3s background-color ease;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+
+<script>
+    const app = Vue.createApp({
+        data(){
+            return {
+                text: 'hello',
+                animate : {
+                    amination: true,
+                    transition: true,
+                },
+                bgc:{
+                    transition: true,
+                    green: true,
+                    red: false
+                }
+            }
+        },
+        methods:{
+            handleClick(){
+                this.animate.amination = !this.animate.amination
+            },
+            handleClick1(){
+                // alert(1)
+                if(this.bgc.green){
+                    this.bgc.green = false;
+                    this.bgc.red = true
+                }else{
+                    this.bgc.red = false;
+                    this.bgc.green = true
+                }
+            }
+        },
+        template: `<div :class="animate">{{text}}</div>
+        <button @click="handleClick">切换</button>
+        <div :class="bgc" style="width:100px;height:100px"></div>
+        <button @click="handleClick1">切换</button>`
+    })
+    app.mount('#root');
+</script>
+</html>

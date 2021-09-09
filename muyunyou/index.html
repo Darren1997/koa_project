@@ -263,10 +263,24 @@
             </div>
         </div>
     </header>
-    <section class="banner">
-        <img class="banner-img" src="/images/banner@2x.jpg" alt="">
+    <section class="banner" id="banner">
+        <!-- <img class="banner-img" src="/images/banner@2x.jpg" alt=""> -->
+        <ul class="img-ul" id="img_ul">
+            <li class="img-li"><img src="/images/banner@2x.jpg" alt="" class="banner-img"></li>
+            <li class="img-li"><img src="/images/banner2@2x.jpg" alt="" class="banner-img"></li>
+            <li class="img-li"><img src="/images/banner3@2x.jpg" alt="" class="banner-img"></li>
+            <li class="img-li"><img src="/images/banner4@2x.jpg" alt="" class="banner-img"></li>
+            <li class="img-li"><img src="/images/banner5@2x.jpg" alt="" class="banner-img"></li>
+        </ul>
+        <ol class="circle-ol" id="circle_ol">
+            <li data-i="0" class="cursor"></li>
+            <li data-i="1"></li>
+            <li data-i="2"></li>
+            <li data-i="3"></li>
+            <li data-i="4"></li>
+        </ol>
         <div class="center-banner center-wrap">
-            <ul class="l-meun">
+            <ul class="l-meun" id="l_meun">
                 <li>
                     <img src="/images/测导航图标01.png" alt="" class="icon">
                     <span class="iconfont1 right-arrow">&#xe6a3;</span>
@@ -664,10 +678,11 @@
                     </div>
                 </li>
             </ul>
-            <a class="left-btn" href=""><img src="/images/left_btn.png" alt=""></a>
-            <a class="right-btn" href=""><img src="/images/right_btn.png" alt=""></a>
+            <a class="left-btn" id="left_btn" href="javascript:;"><img src="/images/left_btn.png" alt=""></a>
+            <a class="right-btn" id="right_btn" href="javascript:;"><img src="/images/right_btn.png" alt=""></a>
         </div>
     </section>
+    <script src="./js/banner.js"></script>
     <aside class="ad clearfix">
         <div class="center-wrap">
             <ul>
@@ -1126,5 +1141,9 @@
             </div>
         </address>
     </footer>
+    <a href="javascript:;" class="back-top" id="backtop">
+        返回<br>顶部
+    </a>
+    <script src="./js/backtop.js"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        template: `<div>{{age}}</div>`,
+        setup(props, context){
+            const { ref, reactive, toRef } = Vue;
+            // let name = ref('darren');
+            // let objAge = reactive({age: 24});
+            const data = reactive({name: 'darren'});
+            const age = toRef(data, 'age');
+            setTimeout(()=>{
+                // name.value = 'fang';
+                // objAge.age = 25;
+                age.value = 55;
+            },4000);
+            return { age };
+        }
+    });
+    
+    const vm = app.mount('#root');
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: transform .5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        const move = (el, {x=0,y=0}={}, end=()=>{})=>{
+            el.style.transform = `translate3d(${x}px,${y}px,0)`;
+            el.addEventListener(
+                'transitionend',
+                ()=>{
+                    end();
+                },false
+            );
+        }
+
+        var box1 = document.getElementById('box1');
+        // document.addEventListener('click',()=>{
+        //     move(box1,{x:150},()=>{
+        //         move(box1,{x:150,y:150})
+        //     });
+        // });
+
+        const movePromise = (el,point)=>{
+            return new Promise(resolve=>{
+                move(el,point,()=>{
+                    resolve();
+                });
+            });
+        };
+
+        document.addEventListener('click',()=>{
+            movePromise(box1,{x:150}).then(()=>{
+                return movePromise(box1,{x:150,y:150})
+            }).then(()=>{
+                return movePromise(box1,{y:150})
+            }).then(()=>{
+                return movePromise(box1,{x:0,y:0})
+            })
+        },false);
+
+        const p = new Promise((resolve,reject)=>{
+            console.log(1);
+            resolve(2);
+        });
+        p.then((res)=>{
+            console.log(res);
+            return 3;
+        })
+        .catch((err)=>4)
+        .then((res)=>console.log(res))
+    </script>
+</body>
+</html>

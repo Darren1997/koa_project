@@ -1,0 +1,11 @@
+@import './_variables';
+@import './_header';
+@import './_main';
+@import './_footer';    
+@import './mixins';
+
+.text-div{
+    @include text-omit(300px){
+        float: left;
+    }
+}

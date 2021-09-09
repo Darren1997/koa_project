@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AEAA,AACI,OADG,CACH,IAAI,CAAA;EACA,KAAK,EDDL,IAAI;CCEP;;ACHL,AAAA,KAAK,CAAA;EACD,SAAS,EFDD,IAAI;CEEf;;ACFD,AAAA,OAAO,CAAA;EACH,MAAM,EHCD,KAAK;CGAb;;AJID,AAAA,SAAS,CAAA;EKLL,QAAQ,EAAE,MAAM;EAChB,aAAa,EAAE,QAAQ;EACvB,WAAW,EAAE,MAAM;EACnB,KAAK,ELGc,KAAK;EACpB,KAAK,EAAE,IAAI;CAElB",
+    "sources": [
+        "demo.scss",
+        "_variables.scss",
+        "_header.scss",
+        "_main.scss",
+        "_footer.scss",
+        "_mixins.scss"
+    ],
+    "names": [],
+    "file": "demo.css"
+}

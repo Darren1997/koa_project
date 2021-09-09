@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    
+</body>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+                show: true,
+                content: "hello world",
+                inputValue: "",
+                list: []
+            }
+        },
+        methods:{
+            handleClick0(){
+                this.content = this.content.split('').reverse().join('')
+            },
+            handleClick1(){
+                this.show = !this.show
+            },
+            addItem(){
+                this.list.push(this.inputValue);
+                this.inputValue = ''
+            }
+        },
+        template: `<div v-if="show">{{ content }}</div>
+        <button v-on:click="handleClick0">反转</button>
+        <button v-on:click="handleClick1">隐藏/显示</button>
+        <br />
+        <input v-model="inputValue"/>
+        <button v-on:click="addItem">添加</button>
+        <ul>
+            <todoList v-for="(item, index) of list" v-bind:item="item" v-bind:index="index" />
+        </ul>`
+    });
+    app.component('todoList',{
+        props:['index', 'item'],
+        template: `<li>{{index}}---{{item}}</li>`
+    });
+    app.mount('#root');
+</script>
+</html>

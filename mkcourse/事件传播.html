@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+        #box3{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        #box4{
+            width: 200px;
+            height: 200px;
+            padding-top: 20px;
+            padding-left: 20px;
+            background-color: rgb(104, 38, 38);
+            margin: auto;
+        }
+        #info{
+            height: 30px;
+            margin: auto;
+        }
+        p{
+            width: 30px;
+            height: 30px;
+            background-color: aquamarine;
+        }
+        /* body{
+            height: 2000px;
+        } */
+        #box5{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(30, 41, 199);
+            position: absolute;
+            top: 200px;
+            left: 500px;
+        }
+        #tcc{
+            width: 400px;
+            height: 100px;
+            background-color: rgb(21, 145, 58);
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            margin-left: -200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+    <div id="box4"><p></p></div>
+    <div id="info"></div>
+    <div id="box5"></div>
+    <button id="btn1">点我显示弹出层</button>
+    <div id="tcc"></div>
+    <script>
+        var oBox1 = document.getElementById('box1');
+        var oBox2 = document.getElementById('box2');
+        var oBox3 = document.getElementById('box3');
+        var oBox4 = document.getElementById('box4');
+        var info = document.getElementById('info');
+        var box5 = document.getElementById('box5');
+        var l = 500;
+        var t = 200;
+
+        var btn1 = document.getElementById('btn1');
+        var tcc = document.getElementById('tcc');
+
+        btn1.onclick = function(e){
+            e.stopPropagation();
+            tcc.style.display = 'block';
+        };
+        tcc.onclick = function(e){
+            e.stopPropagation();
+        };
+        document.onclick = function(){
+            tcc.style.display = 'none';
+        };
+        // oBox1.onclick = function(){
+        //     console.log('我是box1的onclick');
+        // };
+        // oBox2.onclick = function(){
+        //     console.log('我是box2的onclick');
+        // };
+        // oBox3.onclick = function(){
+        //     console.log('我是box3的onclick');
+        // };
+        oBox1.addEventListener('click', function(){
+            console.log('我是box1的onclick');
+        }, true);
+        oBox2.addEventListener('click', function(){
+            console.log('我是box2的onclick');
+        }, true);
+        oBox3.addEventListener('click', function(){
+            console.log('我是box3的onclick');
+        }, true);
+
+        oBox4.onmousemove = function(e){
+            info.innerHTML = 'offsetX, offsetY: ' + e.offsetX +':'+ e.offsetY+
+            '<br>pageX, pageY:'+e.pageX+':'+e.pageY+
+            '<br>clientX, clientY:'+e.clientX+':'+e.clientY;
+        };
+        // document.addEventListener('onclick', function(e){
+        //     console.log(e.pageX);
+        //     switch(e.keyCode){
+        //         case 37:
+        //             l -= 1;
+        //             break;
+        //         case 38:
+        //             t -= 1;
+        //             break;
+        //         case 39:
+        //             l += 1;
+        //             break;
+        //         case 40:
+        //             t += 1;
+        //             break;
+        //     }
+        //     box5.style.top = t + 'px';
+        //     box5.style.left = l + 'px';
+        // }, false);
+        document.onkeydown = function(e){
+            switch(e.keyCode){
+                case 37:
+                    l -= 5;
+                    break;
+                case 38:
+                    t -= 5;
+                    break;
+                case 39:
+                    l += 5;
+                    break;
+                case 40:
+                    t += 5;
+                    break;
+            }
+            box5.style.top = t + 'px';
+            box5.style.left = l + 'px';
+        };
+    </script>
+</body>
+</html>

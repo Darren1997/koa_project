@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = Number(prompt("请输入第一个数字"))
+        // var b = Number(prompt("请输入第二个数字"))
+        // var c = a+b
+        // alert(a+'+'+b+'='+(a+b))
+        // var a = Number(prompt('请输入三位数数字'));
+        // if(!isNaN(a)&&a>=100&&a<=1000){
+        //     a1 = Math.floor(a/100);
+        //     a2 = Math.floor((a%100)/10);
+        //     a3 = a%10;
+        //     if(Math.pow(a1, 3)+Math.pow(a2, 3)+Math.pow(a3, 3)==a){
+        //         alert(a+'是莲花数');
+        //     }else{
+        //         alert(a+'不是莲花数')
+        //     }
+        // }else{
+        //     alert('数字不合法');
+        // }
+
+        // 计算圆周率
+        var result = 1;
+        var sum = 0;
+        var n = Number(prompt('输入数字'));
+        for(var i = 1; i<=n;i++){
+            result *= i/(2*i+1);
+            sum+=result
+        }
+        console.log((sum+1)*2)
+        
+    </script>
+</body>
+</html>

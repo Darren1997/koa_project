@@ -1,0 +1,20 @@
+.header span {
+  color: blue;
+}
+
+.main {
+  font-size: 14px;
+}
+
+.footer {
+  height: 100px;
+}
+
+.text-div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+  float: left;
+}
+/*# sourceMappingURL=demo.css.map */

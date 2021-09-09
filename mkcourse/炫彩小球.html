@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .ball{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 创建小球对象
+        function Ball(x, y){
+            this.x = x;
+            this.y = y;
+            // console.log(this.x);
+            // console.log(this.y);
+            this.color = colorArr[parseInt(Math.random() * 9)];
+            this.r = '50%';
+            this.width = 40;
+            this.height = 40;
+            this.scale = 1;
+            //小球x和y的随机增量
+            do{
+                this.dx = parseInt(Math.random() * 8) - 4;
+                this.dy = parseInt(Math.random() * 8) - 4;
+            }while(this.dx == 0 && this.dy == 0);
+            this.top = (this.y-20);
+            this.left = (this.x-20);
+            this.opacity = 1;
+            this.init();
+            ballArr.push(this);
+        }
+        // 初始化
+        Ball.prototype.init = function(){
+            this.dom = document.createElement('div');
+            this.dom.className = 'ball';
+            this.dom.style.width = this.width + 'px';
+            this.dom.style.height = this.height + 'px';
+            this.dom.style.backgroundColor = this.color;
+            this.dom.style.borderRadius = this.r;
+            this.dom.style.top = this.top + 'px';
+            this.dom.style.left = this.left + 'px';
+            this.dom.style.transform = 'scale('+this.scale+')'
+            document.body.appendChild(this.dom);
+        };
+        // 更新
+        Ball.prototype.updata = function(){
+            this.x += this.dx;
+            this.y += this.dy;
+            this.opacity -= 0.01;
+            this.top = this.y-20;
+            this.left = this.x-20;
+            this.scale += 0.01;
+            // this.dom.style.backgroundColor = colorArr[parseInt(Math.random() * 9)];
+            this.dom.style.top = this.top +'px';
+            this.dom.style.left = this.left +'px';
+            this.dom.style.opacity = this.opacity;
+            this.dom.style.transform = 'scale('+this.scale+')';
+            if(this.opacity <= 0){
+                for(var i = 0; i < ballArr.length; i++){
+                    if(ballArr[i] == this){
+                        ballArr.splice(i,1);
+                    }
+                }
+                document.body.removeChild(this.dom);
+            }
+            // console.log(ballArr.length);
+        };
+        var ballArr = [];
+        var colorArr = ['red', 'blue', 'green', 'yellow', 'chocolate', 'aquamarine', 'azure', 'orange']
+        // new Ball(200,200);
+        setInterval(function(){
+            for(var i = 0; i < ballArr.length; i++){
+                ballArr[i].updata();
+            }
+        }, 20);
+
+        document.onmousemove = function(e){
+            new Ball(e.clientX, e.clientY);
+        }
+    </script>
+</body>
+</html>

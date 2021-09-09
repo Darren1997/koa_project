@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="./src/index.js" type="module"></script> -->
+    <!-- <script src="./dist/bundle.js"></script> -->
+    <button id="cn">中文</button>
+    <button id="en">English</button>
+    <script>
+        // function foo(n){
+        //     const f = ()=>{
+        //         const [arg1] = arguments
+        //         return arg1 + n
+        //     };
+        //     return f();
+        // }
+        // let res = foo(2);
+        // console.log(res);
+
+        // const map = new Map();
+        // const s = new Set([1, NaN, 2, 1, "NaN", NaN]);
+        // map.set([1],"imooc");
+        // const m1 = map.get([1]);
+        // console.log(map)
+        // console.log(map.entries());
+        // console.log(s.size);
+
+        // let obj = {name:"xm", age:18};
+        // for(var i of obj){
+        //     console.log(i);
+        // }
+        // Promise.resolve(1)
+        // .then((x)=>x+1)
+        // .then((x)=>x+1)
+        // .then((x)=>console.log(x))
+        // .then((x)=>{throw new Error('err')})
+        // .catch(()=>3)
+        // .then((x)=>x+1)
+        // .then((x)=>console.log(x))
+        // .catch((x)=>console.log(error))
+
+        // const age = 17;
+        // class Person{
+        //     constructor(age){
+        //         this.age = age;
+        //     }
+        //     age = 18;
+        //     static age = 19;
+        //     say = () => {
+        //         console.log(this.age);
+        //     }
+        // }
+        // var p1 = new Person(30);
+        // p1.say();
+
+        // const arr = [...[...'...']];
+        // console.log(arr)
+
+        // let a = 1;
+        // const foo = () => {
+        //     return obj = {
+        //         a:2,
+        //         fn(){
+        //             let a = 3;
+        //             setTimeout(() => {
+        //                 console.log(this.a);
+        //             });
+        //         }
+        //     }
+        // }
+        // const result = foo();
+        // result.fn();
+
+        // function bar(x=y,y=2){
+        //     return [x,y];
+        // }
+        // console.log(bar());
+
+        // const arr = ['a','b',['c','d',['e','f','g']]];
+        // let [,,[,,[,f,]]]=arr;
+        // console.log(f)
+
+        // document.cookie = `username =  ${encodeURIComponent('张三')}`;
+        // document.cookie = `age = 18; expires=${new Date('2021-4-29 00:00:00')}`;
+        // document.cookie = 'sex = 1; max-age = 20';
+    </script>
+    <script type="module">
+        import {set, get, remove} from "./src/cookie.js";
+        // set('username', 'fhk');
+        // remove('username');
+        // console.log(get('username'));
+        let cnBtn = document.getElementById('cn');
+        let enBtn = document.getElementById('en');
+        cnBtn.addEventListener('click', function(){
+            set('language','cn',{'max_age':300});
+            window.location = './2.html';
+        })
+        enBtn.addEventListener('click', function(){
+            set('language', 'en',{'max_age':300});
+            window.location = './2.html';
+        })
+    </script>
+</body>
+</html>

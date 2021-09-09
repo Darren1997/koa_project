@@ -1,0 +1,7 @@
+@mixin text-omit($width) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: $width;
+    @content
+}

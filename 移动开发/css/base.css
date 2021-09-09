@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    font-size: 14px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #363636;
+}
+
+a:hover{
+    color: #1428a0;
+}
+
+img{
+    width: 100%;
+    border: none;
+    vertical-align: top;
+}

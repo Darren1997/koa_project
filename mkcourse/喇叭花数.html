@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function factorial(n){
+            var result = 1;
+            for(var i = 1; i <= n; i++){
+                result *= i;
+            }
+            return result;
+        }
+        // console.log(factorial(3));
+        for(var j = 100; j < 1000; j++){
+            var j_str = j.toString();
+            a = Number(j_str[0]);
+            b = Number(j_str[1]);
+            c = Number(j_str[2]);
+            // console.log(a,b,c);
+            if(factorial(a)+factorial(b)+factorial(c) == j)
+                console.log(j); z
+        }
+    </script>
+</body>
+</html>

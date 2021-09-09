@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .content-part{
+        width: 500px;
+        height: 300px;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #555;
+    }
+    .nav-r{
+        list-style: none;
+        background-color: chocolate;
+        width: 70px;
+        position: fixed;
+        right: 0px;
+        top: 50%;
+    }
+    li{
+        cursor: pointer;
+        /* text-align: center; */
+    }
+    .cur{
+        background-color: rebeccapurple;
+    }
+</style>
+<body>
+    <ul class="nav-r" id="nav-r">
+        <li class="cur" data-n='科技'>科技</li>
+        <li data-n='财经'>财经</li>
+        <li data-n='体育'>体育</li>
+        <li data-n='政治'>政治</li>
+        <li data-n='生活'>生活</li>
+    </ul>
+    <section class="content-part" data-n='科技'>科技栏目</section>
+    <section class="content-part" data-n='财经'>财经栏目</section>
+    <section class="content-part" data-n='体育'>体育栏目</section>
+    <section class="content-part" data-n='政治'>政治栏目</section>
+    <section class="content-part" data-n='生活'>生活栏目</section>
+
+    <script>
+        var nav_r = document.getElementById('nav-r');
+
+        nav_r.onclick = function(e){
+            // alert(e.target.getAttribute('data-n'));
+            var data_n = e.target.getAttribute('data-n');
+            var sec = document.querySelector('.content-part[data-n='+data_n+']');
+            document.documentElement.scrollTop = sec.offsetTop;
+        };
+        
+        var lis = document.getElementsByTagName('li');
+        var li_scroll = [];
+        var nowfloor = 0;
+        for(var k = 0; k < lis.length; k++){
+            li_scroll.push(lis[k].offsetTop);
+        }
+        li_scroll.push(Infinity);
+        // console.log(li_scroll);
+        window.onscroll = function(){
+            var scrollTop = document.documentElement.scrollTop;
+
+            for(var i = 0; i < lis.length; i++){
+                if(scrollTop >= li_scroll[i] && scrollTop < li_scroll[i+1]){
+                    break;
+                }
+            }
+            if(nowfloor != i){
+                console.log(i);
+                nowfloor = i;
+            }
+        }
+    </script>
+</body>
+</html>

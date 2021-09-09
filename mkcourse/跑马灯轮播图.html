@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #box{
+            width: 650px;
+            height: 360px;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        #list{
+            list-style: none;
+            width: 50000px;
+            position: relative;
+            left: 0px;
+            transition: left .5s linear 0s;
+        }
+        #list li{
+            float: left;
+
+        }
+        #btn-l, #btn-r{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: rgba(24, 0, 236, 0.5);
+        }
+        #btn-l{
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+        #btn-r{
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn_l = document.getElementById('btn-l');
+            var btn_r = document.getElementById('btn-r');
+            var list = document.getElementById('list');
+            var left = 0;
+            var timer;
+            var idd = 0;
+            var lock = true;
+            var cloneli = list.firstElementChild.cloneNode(true);
+            list.appendChild(cloneli);
+            console.log('llll');
+            btn_r.onclick = function(){
+                if(!lock) return;
+                lock = false;
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    lock = true;
+                }, 600);
+                list.style.transition = 'left .5s linear 0s';
+                idd++;
+                if(idd == 6){
+                    list.style.transition = 'none';
+                    idd = 0;
+                    list.style.left = (-idd * 650) +'px';
+                    setTimeout(function(){
+                        list.style.transition = 'left .5s linear 0s';
+                        idd = 1;
+                        list.style.left = (-idd * 650) +'px';
+                    }, 0);
+                }
+                list.style.left = (-idd * 650) +'px';
+                };
+            btn_l.onclick = function(){
+                if(!lock) return;
+                lock = false;
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    lock = true;
+                }, 600);
+                list.style.transition = 'left .5s linear 0s';
+                if(idd == 0){
+                    list.style.transition = 'none';
+                    idd = 5;
+                    list.style.left = -idd * 650 +'px';
+                    setTimeout(function(){
+                        list.style.transition = 'left .5s linear 0s';
+                        idd = 4;
+                        list.style.left = -idd * 650 +'px';
+                    }, 0);
+                }
+                else{
+                    idd--;
+                    list.style.left = -idd * 650 +'px';
+                }
+            }
+            };
+
+        
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li><img src="./images/00.jpg" alt=""></li>
+            <li><img src="./images/01.jpg" alt=""></li>
+            <li><img src="./images/02.jpg" alt=""></li>
+            <li><img src="./images/03.jpg" alt=""></li>
+            <li><img src="./images/04.jpg" alt=""></li>
+        </ul>
+        <button id="btn-l"></button>
+        <button id="btn-r"></button>
+    </div>
+</body>
+</html>
