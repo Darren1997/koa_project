@@ -44,7 +44,7 @@ export default {
     }
     const handleRegisterLink = () => {
       route.push({ name: 'Register' })
-      console.log(1111)
+      console.log(11111)
     }
     return { handleLogin, handleRegisterLink, data }
   }
