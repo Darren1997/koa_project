@@ -41,7 +41,7 @@ export default {
           showToast('登陆失败！')
         }
       } catch {
-        showToast('请求失败！')
+        showToast('11请求失败！')
       }
 
     //   localStorage.isLogin = true
